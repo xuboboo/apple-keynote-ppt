@@ -53,13 +53,17 @@ pip install python-pptx
 
 ## 文档导航
 
-| 文档 | 内容 |
-|---|---|
-| [docs/INSTALLATION.md](docs/INSTALLATION.md) | 环境要求、各宿主安装、依赖、验证、故障排查 |
-| [docs/USAGE.md](docs/USAGE.md) | 使用方式、outline.json 字段参考、版式目录、QA 流程、自定义 |
-| [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) | Agent Skills 规范符合性与各宿主（WorkBuddy 等）兼容说明 |
-| [CHANGELOG.md](CHANGELOG.md) | 版本更新记录 |
-| [SKILL.md](SKILL.md) | AI 读取的核心技能规范（六步工作流 + 速查卡） |
+| 文档 | 适合谁 | 内容 |
+|---|---|---|
+| [docs/TUTORIAL.md](docs/TUTORIAL.md) | **第一次用，从这里开始** | 手把手教程：从一句话需求到交付一套发布会 PPT |
+| [docs/USAGE.md](docs/USAGE.md) | 日常使用 | 三种使用方式、outline.json 全字段参考、版式目录、QA 流程 |
+| [docs/INSTALLATION.md](docs/INSTALLATION.md) | 安装部署 | 环境要求、各宿主安装、依赖、验证、故障排查 |
+| [docs/FAQ.md](docs/FAQ.md) | 遇到问题时 | 功能边界、字体授权、多宿主共存等常见问题 |
+| [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | 二次开发 | 架构与设计取舍、渐变文字实现原理、扩展点、已知限制 |
+| [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) | 多宿主用户 | Agent Skills 规范符合性与各宿主（WorkBuddy 等）兼容说明 |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | 内部协作者 | 分支约定、改动分级验收标准、新增版式完整步骤 |
+| [CHANGELOG.md](CHANGELOG.md) | 所有人 | 版本更新记录 |
+| [SKILL.md](SKILL.md) | AI 读取 | 核心技能规范（六步工作流 + 速查卡），也是理解产品逻辑的入口 |
 
 ## 项目结构
 
@@ -87,17 +91,10 @@ apple-keynote-ppt/
 
 ## FAQ
 
-**Q: 生成的 PPT 能自己改吗？**
-能。文案全部在 `outline.json` 里，改完重新跑 `node scripts/build_deck.js outline.json deck.pptx` 即可，无需碰任何代码。
-
-**Q: 必须有图片吗？**
-不需要。纯排版（大字宣言、超大数字、渐变、色块阵列）是必选基线；有产品图效果更佳，规范见 `references/images.md`。
-
-**Q: 支持英文 PPT 吗？**
-支持。字体层自动按文本选择微软雅黑（中文）或 Segoe UI（西文），两种语言混排均可。
-
 **Q: 能在其他电脑上打开吗？**
 能。字体使用 Windows 自带的微软雅黑/Segoe UI，在 macOS 上会自动回落到苹方/SF Pro。
+
+更多问题（图表支持、动画、页数上限、品牌色、多宿主共存等）见 **[docs/FAQ.md](docs/FAQ.md)**。
 
 ## 版权与免责
 

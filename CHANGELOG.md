@@ -7,11 +7,17 @@
 
 ## [Unreleased]
 
+### Added
+
+- 产品文档体系补全：上手教程（TUTORIAL）、架构文档（ARCHITECTURE）、独立 FAQ、内部贡献指南（CONTRIBUTING），README 文档导航按读者角色重组
+- GitHub 仓库 About 与 topics 标签
+
 ### 计划
 
 - gallery 版式支持 2 行阵列
 - 浅色模式渐变可用性优化
 - macOS/Linux 预览渲染一等支持（LibreOffice 路径脚本化）
+- 演讲者备注支持（outline 每页 note 字段 → PPTX 备注页）
 
 ## [1.0.0] - 2026-09-13
 
