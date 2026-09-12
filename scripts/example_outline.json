@@ -1,0 +1,86 @@
+{
+  "mode": "dark",
+  "title": "Apple Milk Tea 发布会",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Apple Special Event",
+      "title": "Apple Milk Tea",
+      "subtitle": "这一次，重新定义奶茶。",
+      "date": "2026.09.13"
+    },
+    {
+      "type": "statement",
+      "text": "好茶，不需要说明书。"
+    },
+    {
+      "type": "section",
+      "number": "01",
+      "title": "设计",
+      "subtitle": "一体成型，浑然天成。"
+    },
+    {
+      "type": "productHero",
+      "title": "一杯，六种茶。",
+      "subtitle": "圆柱杯身 3:1 黄金比例，双层 Tritan，一体成型。"
+    },
+    {
+      "type": "bignum",
+      "kicker": "A1 爆珠核心",
+      "value": "3nm",
+      "label": "制香工艺",
+      "caption": "每一颗爆珠，都经过 3 纳米级的风味校准。"
+    },
+    {
+      "type": "featureGrid",
+      "title": "三重茶香科技",
+      "features": [
+        { "title": "冷热同杯", "text": "-5°C 到 85°C 全温域，杯身不结露、不烫手。" },
+        { "title": "磁吸杯盖", "text": "MagSafe 吸管自动对吸，单手开合。" },
+        { "title": "茶多酚屏", "text": "杯身实时显示甜度、冰量与剩余茶量。" }
+      ]
+    },
+    {
+      "type": "compare",
+      "leftLabel": "传统奶茶",
+      "rightLabel": "Apple Milk Tea",
+      "left": { "value": "30 分钟", "points": ["排队点单", "甜度靠猜", "喝完杯子扔掉"] },
+      "right": { "value": "3 秒", "points": ["蓝牙一点即取", "甜度 0–100% 精确可调", "杯身终身保修"] }
+    },
+    {
+      "type": "gallery",
+      "title": "六款全新配色",
+      "items": [
+        { "name": "云朵乌龙", "desc": "茉莉 · 奶盖", "color": "F3EFE8" },
+        { "name": "莓果气泡", "desc": "草莓 · 气泡", "color": "E8455F" },
+        { "name": "芒果阳光", "desc": "芒果 · 绿茶", "color": "F5A623" },
+        { "name": "抹茶森林", "desc": "抹茶 · 牛乳", "color": "3E7C4F" },
+        { "name": "海盐蓝调", "desc": "海盐 · 蝶豆花", "color": "2D6FBF" },
+        { "name": "紫薯星空", "desc": "紫薯 · 鲜奶", "color": "6B4FA3" }
+      ]
+    },
+    {
+      "type": "quote",
+      "text": "小孩子才做选择。",
+      "attribution": "—— 发布会现场"
+    },
+    {
+      "type": "statement",
+      "text": "成年人，全部都要。",
+      "gradient": true
+    },
+    {
+      "type": "pricing",
+      "value": "¥19",
+      "label": "Apple Milk Tea 系列",
+      "config": "含一杯茶，无限续杯需订阅 Tea+",
+      "note": "* 本演示为风格化戏仿，与 Apple Inc. 无任何关联。"
+    },
+    {
+      "type": "closing",
+      "title": "Tea，重新定义。",
+      "subtitle": "Apple Milk Tea 今日开售",
+      "event": "Apple Special Event · 2026.09"
+    }
+  ]
+}
