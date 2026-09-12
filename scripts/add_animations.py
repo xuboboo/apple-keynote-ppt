@@ -83,8 +83,39 @@ def order_shapes(shapes, mode):
     return sorted(shapes, key=lambda s: (s["y"], s["x"]))
 
 
-def entrance(kind: str, spid: str, delay: int, dur: int, ids: list) -> str:
-    """按动效类型生成一个形状的入场行（set + 视觉行为组合）。"""
+def dur_factor(s, hold: float) -> float:
+    """尺寸感知时长：大而重的元素运动更慢（0.85–1.35×）；极简页整体乘 hold 持住。"""
+    f = 0.85 + (s["cy"] / 6858000.0) * 1.2
+    return round(min(1.35, max(0.85, f)) * hold, 3)
+
+
+def group_beats(ordered, cap=6):
+    """节拍分组：垂直区间相互重叠的元素同拍入场（同时阅读 = 同一节拍）；
+    节拍数超过 cap 时，尾部节拍全部并入最后一拍（cap=6 恰好容纳 bars 的
+    kicker+标题+4 行，多行版式的每一行都是独立节拍）。"""
+    beats = []
+    for s in ordered:
+        for beat in beats:
+            if any(
+                min(s["y"] + s["cy"], m["y"] + m["cy"]) - max(s["y"], m["y"])
+                > 0.5 * max(1, min(s["cy"], m["cy"]))
+                for m in beat
+            ):
+                beat.append(s)
+                break
+        else:
+            beats.append([s])
+    if len(beats) > cap:
+        merged = [x for b in beats[cap - 1:] for x in b]
+        beats = beats[: cap - 1] + [merged]
+    return beats
+
+
+def entrance(s, kind: str, delay: int, dur: int, ids: list, hold: float = 1.0) -> str:
+    """按动效类型生成一个形状的入场行（set + 视觉行为组合，减速落定）。"""
+    d = int(dur * dur_factor(s, hold))
+    spid = s["spid"]
+
     def nid():
         ids[0] += 1
         return ids[0]
@@ -101,10 +132,10 @@ def entrance(kind: str, spid: str, delay: int, dur: int, ids: list) -> str:
     if kind.startswith("rise"):
         visual = (
             f'<p:animEffect transition="in" filter="{FADE_FILTER}"><p:cBhvr>'
-            f'<p:cTn id="{fx_id}" dur="{dur}"/>'
+            f'<p:cTn id="{fx_id}" dur="{d}"/>'
             f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl></p:cBhvr></p:animEffect>'
             f'<p:anim calcmode="lin" valueType="num"><p:cBhvr additive="base">'
-            f'<p:cTn id="{nid()}" dur="{dur}" fill="hold"/>'
+            f'<p:cTn id="{nid()}" dur="{d}" fill="hold" decel="80000"/>'
             f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl>'
             f'<p:attrNameLst><p:attrName>ppt_y</p:attrName></p:attrNameLst></p:cBhvr>'
             f'<p:tavLst><p:tav tm="0"><p:val><p:strVal val="#ppt_y+{RISE[kind]}"/></p:val></p:tav>'
@@ -113,22 +144,22 @@ def entrance(kind: str, spid: str, delay: int, dur: int, ids: list) -> str:
     elif kind == "fade":
         visual = (
             f'<p:animEffect transition="in" filter="{FADE_FILTER}"><p:cBhvr>'
-            f'<p:cTn id="{fx_id}" dur="{dur}"/>'
+            f'<p:cTn id="{fx_id}" dur="{d}"/>'
             f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl></p:cBhvr></p:animEffect>'
         )
     elif kind == "wipe":
         visual = (
             f'<p:animEffect transition="in" filter="{WIPE_FILTER}"><p:cBhvr>'
-            f'<p:cTn id="{fx_id}" dur="{dur}"/>'
+            f'<p:cTn id="{fx_id}" dur="{d}"/>'
             f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl></p:cBhvr></p:animEffect>'
         )
-    else:  # scale96 / scale88 / scale104：淡入 + 缩放生长/沉降
+    else:  # scale 系列：淡入 + 缩放生长/沉降（减速落定）
         f0 = SCALE_FROM[kind] * 1000
         visual = (
             f'<p:animEffect transition="in" filter="{FADE_FILTER}"><p:cBhvr>'
-            f'<p:cTn id="{fx_id}" dur="{dur}"/>'
+            f'<p:cTn id="{fx_id}" dur="{d}"/>'
             f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl></p:cBhvr></p:animEffect>'
-            f'<p:animScale><p:cBhvr><p:cTn id="{nid()}" dur="{dur}" fill="hold"/>'
+            f'<p:animScale><p:cBhvr><p:cTn id="{nid()}" dur="{d}" fill="hold" decel="60000"/>'
             f'<p:tgtEl><p:spTgt spid="{spid}"/></p:tgtEl></p:cBhvr>'
             f'<p:from x="{f0}" y="{f0}"/><p:to x="100000" y="100000"/></p:animScale>'
         )
@@ -152,11 +183,13 @@ def timing_xml(shapes, prog, jitter: int) -> str:
     ordered = order_shapes(shapes, prog["order"])
     ids = [4]
     step, dur = prog["step"], prog["dur"]
-    n = len(ordered)
-    step = min(step, 1200 // max(1, n - 1)) if n > 1 else step
+    hold = 1.4 if len(shapes) <= 2 else 1.0  # 极简页（宣言/封面句）：把字持住，缓缓浮现
+    beats = group_beats(ordered)
+    step = min(step, 1200 // max(1, len(beats) - 1)) if len(beats) > 1 else step
     rows = "".join(
-        entrance(assign_effect(s, prog), s["spid"], i * step, dur, ids)
-        for i, s in enumerate(ordered)
+        entrance(s, assign_effect(s, prog), bi * step + j * 40, dur, ids, hold)
+        for bi, beat in enumerate(beats)
+        for j, s in enumerate(beat)
     )
     builds = "".join(
         f'<p:bldP spid="{s["spid"]}" grpId="0"/>' for s in ordered if s["text"]
