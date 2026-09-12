@@ -2,7 +2,7 @@
 
 > 苹果发布会风格的 PPT 生成 Skill——把任意主题变成极简、大字、大留白的 Keynote 风演示文稿。
 
-**私有项目 · 未经授权不得分发** | 版本 1.0.0 | 标准 [Agent Skills](https://zhuanlan.zhihu.com/p/2026969192268579241) 格式，兼容 WorkBuddy / ZCode / Claude Code 等 Agent 宿主
+**公开仓库 · 仅供学习交流** | v1.1.0 | 标准 [Agent Skills](https://zhuanlan.zhihu.com/p/2026969192268579241) 格式，兼容 WorkBuddy / ZCode / Claude Code 等 Agent 宿主
 
 ---
 
@@ -117,6 +117,6 @@ apple-keynote-ppt/
 
 ## 版权与免责
 
-Copyright © 2026. 保留所有权利。本项目为私有项目，未经作者书面授权，不得复制、分发或公开。
+Copyright © 2026. 保留所有权利。本仓库内容公开仅供学习与研究，未经作者书面授权，不得用于商业用途或整体再分发。
 
 "Apple"、"Keynote" 等字样仅为风格描述与戏仿用途，与 Apple Inc. 无任何关联、授权或代言关系。生成内容不得用于误导消费者、虚假宣传或商业侵权用途。
