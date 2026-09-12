@@ -28,12 +28,31 @@
 | 纯排版基线 | 无图片输入也成立；用户图片与 AI 配图均有完整规范 |
 | 跨宿主兼容 | 标准 Agent Skills 目录结构，WorkBuddy 零修改安装 |
 
-## 效果预览
+## 效果预览：四种风格
 
-![封面](assets/preview/slide-01.png)
-![参数大字页](assets/preview/slide-05.png)
+以下全部由本 skill 自动生成（纯排版，无任何手工修图）：
 
-更多页面见 [`assets/preview/`](assets/preview/)（12 页示例：戏仿"Apple Milk Tea"发布会，深色模式、纯排版）。
+<table>
+  <tr>
+    <td width="50%" align="center"><img src="assets/preview/slide-01.png" alt="暗黑发布会 · 中文戏仿"><br><sub><b>暗黑发布会 · 中文戏仿</b> — Apple Milk Tea</sub></td>
+    <td width="50%" align="center"><img src="assets/showcase/inkpod-light/preview/slide-01.png" alt="浅色官网风 · 产品发布"><br><sub><b>浅色官网风 · 产品发布</b> — InkPod</sub></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><img src="assets/showcase/business-review/preview/slide-04.png" alt="商务汇报风"><br><sub><b>商务汇报风 · 年度增长汇报</b> — 全程纯色无渐变</sub></td>
+    <td width="50%" align="center"><img src="assets/showcase/aurora-en/preview/slide-05.png" alt="暗黑发布会 · 英文"><br><sub><b>暗黑发布会 · 英文排版</b> — Aurora Buds</sub></td>
+  </tr>
+</table>
+
+### 示例成品库
+
+| 风格 | 模式 | 渐变 | 页数 | 大纲模板 | 成品与渲染图 |
+|---|---|---|---|---|---|
+| 戏仿暗黑发布会 · Apple Milk Tea | dark | ✅ 4 处 | 12 | [`scripts/example_outline.json`](scripts/example_outline.json) | [`assets/preview/`](assets/preview/) |
+| 浅色官网产品发布 · InkPod | light | ✅ 4 处 | 11 | [`scripts/example_light_product.json`](scripts/example_light_product.json) | [`assets/showcase/inkpod-light/`](assets/showcase/inkpod-light/) |
+| 商务汇报 · 年度增长汇报 | light | ❌ 纯色 | 11 | [`scripts/example_business.json`](scripts/example_business.json) | [`assets/showcase/business-review/`](assets/showcase/business-review/) |
+| 英文暗黑发布会 · Aurora Buds | dark | ✅ 4 处 | 11 | [`scripts/example_dark_en.json`](scripts/example_dark_en.json) | [`assets/showcase/aurora-en/`](assets/showcase/aurora-en/) |
+
+每套示例 = 一份 outline 模板 + 一个 .pptx 成品 + 逐页 PNG。全部通过代码级 QA（`check_layout.py` 零错误）与逐页视觉验收（45/45 pass）。想复用某种风格，直接把对应大纲模板改成你的文案即可。
 
 ## 快速开始
 

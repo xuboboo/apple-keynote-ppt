@@ -1,0 +1,115 @@
+{
+  "mode": "light",
+  "title": "2025 年度增长汇报（商务汇报风示例）",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Annual Growth Review",
+      "title": "2025 年度增长汇报",
+      "subtitle": "增长团队 · 2026.01",
+      "date": "内部资料 · 请勿外传",
+      "gradient": false
+    },
+    {
+      "type": "statement",
+      "text": "从 0 到 1，再从 1 到 10。"
+    },
+    {
+      "type": "section",
+      "number": "01",
+      "title": "全年成绩",
+      "subtitle": "每一项，都是翻倍。"
+    },
+    {
+      "type": "bignum",
+      "kicker": "全年成交总额",
+      "value": "3.2亿",
+      "label": "GMV，同比 +217%",
+      "caption": "双 eleven 单日突破 4,100 万。",
+      "gradient": false
+    },
+    {
+      "type": "bignum",
+      "kicker": "注册用户",
+      "value": "240万",
+      "label": "净增 168 万",
+      "caption": "获客成本下降 46%，留存率上升至 58%。",
+      "gradient": false
+    },
+    {
+      "type": "featureGrid",
+      "title": "三大增长引擎",
+      "features": [
+        {
+          "title": "内容种草",
+          "text": "小红书 + 抖音双平台 1,200 篇爆文，带来 41% 新客。"
+        },
+        {
+          "title": "私域复购",
+          "text": "12 万企业微信好友，复购率从 19% 提升至 37%。"
+        },
+        {
+          "title": "出海试水",
+          "text": "东南亚三国上线，首年贡献 GMV 2,800 万。"
+        }
+      ]
+    },
+    {
+      "type": "compare",
+      "leftLabel": "2024",
+      "rightLabel": "2025",
+      "left": {
+        "value": "1.0亿",
+        "points": [
+          "投放驱动，费用率 42%",
+          "复购率 19%",
+          "单一国内渠道"
+        ]
+      },
+      "right": {
+        "value": "3.2亿",
+        "points": [
+          "内容驱动，费用率 24%",
+          "复购率 37%",
+          "国内 + 出海双曲线"
+        ]
+      }
+    },
+    {
+      "type": "quote",
+      "text": "今年最正确的决定，是把预算从投放搬到了内容。",
+      "attribution": "—— CEO 年度信"
+    },
+    {
+      "type": "section",
+      "number": "02",
+      "title": "2026 三条主线",
+      "subtitle": "把翻倍，变成习惯。"
+    },
+    {
+      "type": "featureGrid",
+      "title": "2026 增长主线",
+      "features": [
+        {
+          "title": "产品线扩展",
+          "text": "Q2 上新入门系列，覆盖百元价格带。"
+        },
+        {
+          "title": "渠道纵深",
+          "text": "线下体验店 5 城 10 店，线上线下库存打通。"
+        },
+        {
+          "title": "出海加速",
+          "text": "东南亚 GMV 目标 1.2 亿，组建本地化团队。"
+        }
+      ]
+    },
+    {
+      "type": "closing",
+      "title": "增长，才刚刚开始。",
+      "subtitle": "2026，一起把不可能变成日常。",
+      "event": "Annual Growth Review · 2026.01",
+      "gradient": false
+    }
+  ]
+}

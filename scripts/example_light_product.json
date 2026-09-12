@@ -1,0 +1,81 @@
+{
+  "mode": "light",
+  "title": "InkPod 发布会（浅色官网风示例）",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "InkPod Special Event",
+      "title": "InkPod",
+      "subtitle": "纸，学会了思考。",
+      "date": "2026.10.20"
+    },
+    {
+      "type": "statement",
+      "text": "写作，不该等待屏幕。"
+    },
+    {
+      "type": "section",
+      "number": "01",
+      "title": "设计",
+      "subtitle": "把屏幕，做成纸的样子。"
+    },
+    {
+      "type": "productHero",
+      "title": "一块会思考的纸。",
+      "subtitle": "10.3 英寸墨水屏 · 300ppi · 类纸蚀刻工艺。"
+    },
+    {
+      "type": "bignum",
+      "kicker": "墨水屏响应引擎",
+      "value": "0ms",
+      "label": "落笔延迟",
+      "caption": "笔尖触达的瞬间，字迹已经在纸上。"
+    },
+    {
+      "type": "featureGrid",
+      "title": "三重纸感科技",
+      "features": [
+        { "title": "类纸蚀刻", "text": "屏幕表面微米级蚀刻，摩擦系数接近道林纸。" },
+        { "title": "4096 压感", "text": "笔锋粗细随力度自然变化，侧峰也能写出飞白。" },
+        { "title": "零反光", "text": "阳光下可读，深夜护眼，阅读与书写互不打扰。" }
+      ]
+    },
+    {
+      "type": "bignum",
+      "kicker": "续航",
+      "value": "30天",
+      "label": "一次充电",
+      "caption": "从国庆长假写回来，电量还有余。"
+    },
+    {
+      "type": "compare",
+      "leftLabel": "普通平板",
+      "rightLabel": "InkPod",
+      "left": { "value": "7 天", "points": ["一天一充", "反光刺眼", "写字延迟明显"] },
+      "right": { "value": "30 天", "points": ["月级续航", "类纸无反光", "0ms 落笔"] }
+    },
+    {
+      "type": "gallery",
+      "title": "四款全新配色",
+      "items": [
+        { "name": "星尘白", "desc": "雪松白机身", "color": "F0EFE9" },
+        { "name": "曜石黑", "desc": "磨砂阳极氧化", "color": "2B2B2D" },
+        { "name": "晨雾绿", "desc": "低饱和灰绿", "color": "9DB4A0" },
+        { "name": "暮云粉", "desc": "暖调浅粉", "color": "D9B8B4" }
+      ]
+    },
+    {
+      "type": "pricing",
+      "value": "¥2,399",
+      "label": "InkPod 全系列",
+      "config": "标配手写笔，早鸟立减 400",
+      "note": "* 2026.10.27 上午 9 点全渠道开售"
+    },
+    {
+      "type": "closing",
+      "title": "纸，学会了思考。",
+      "subtitle": "InkPod 10.27 开售",
+      "event": "InkPod Special Event · 2026.10"
+    }
+  ]
+}

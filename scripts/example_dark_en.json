@@ -1,0 +1,81 @@
+{
+  "mode": "dark",
+  "title": "Aurora Buds Keynote (English dark example)",
+  "slides": [
+    {
+      "type": "cover",
+      "kicker": "Aurora Keynote",
+      "title": "Aurora Buds",
+      "subtitle": "Silence, redesigned.",
+      "date": "2026.11.05"
+    },
+    {
+      "type": "statement",
+      "text": "Hear everything. Hear nothing."
+    },
+    {
+      "type": "section",
+      "number": "01",
+      "title": "Sound",
+      "subtitle": "The quietest place is your head."
+    },
+    {
+      "type": "productHero",
+      "title": "Music, uninterrupted.",
+      "subtitle": "11mm graphene driver, tuned in a zero-echo chamber."
+    },
+    {
+      "type": "bignum",
+      "kicker": "Active Noise Cancellation",
+      "value": "-42dB",
+      "label": "Deep Silence Mode",
+      "caption": "Subway roar becomes a library whisper."
+    },
+    {
+      "type": "featureGrid",
+      "title": "Three breakthroughs",
+      "features": [
+        { "title": "Graphene driver", "text": "11mm diaphragm, 0.02ms response, zero distortion above 90dB." },
+        { "title": "Adaptive ANC", "text": "Scans your surroundings 200 times per second." },
+        { "title": "Spatial audio", "text": "Head-tracked sound that stays pinned to the screen." }
+      ]
+    },
+    {
+      "type": "bignum",
+      "kicker": "Battery",
+      "value": "40hr",
+      "label": "With the charging case",
+      "caption": "Ten minutes of charge buys five hours of music."
+    },
+    {
+      "type": "compare",
+      "leftLabel": "Ordinary buds",
+      "rightLabel": "Aurora Buds",
+      "left": { "value": "6hr", "points": ["Hiss in quiet rooms", "ANC toggles by hand", "Lag while watching"] },
+      "right": { "value": "40hr", "points": ["Noise floor at -42dB", "ANC adapts by itself", "Audio never leaves the screen"] }
+    },
+    {
+      "type": "gallery",
+      "title": "Four finishes",
+      "items": [
+        { "name": "Moonlight", "desc": "Matte white", "color": "EDEDE8" },
+        { "name": "Midnight", "desc": "Anodized black", "color": "232326" },
+        { "name": "Aurora Teal", "desc": "Anodized teal", "color": "3E8E8B" },
+        { "name": "Dusk Pink", "desc": "Warm blush", "color": "C9A3A0" }
+      ]
+    },
+    {
+      "type": "pricing",
+      "value": "$199",
+      "label": "Aurora Buds",
+      "config": "Wireless charging case included",
+      "note": "* Available Nov 12, 2026"
+    },
+    {
+      "type": "closing",
+      "title": "Sound, reimagined.",
+      "subtitle": "Aurora Buds on sale 11.12",
+      "event": "Aurora Keynote · 2026.11"
+    }
+  ]
+}

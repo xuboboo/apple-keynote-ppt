@@ -72,7 +72,7 @@ const { buildDeck, LAYOUTS } = require('./scripts/apple_theme');
 
 图片路径相对 outline.json 所在目录解析。
 
-完整示例见 [`scripts/example_outline.json`](../scripts/example_outline.json)。
+完整示例见 [`scripts/example_outline.json`](../scripts/example_outline.json)。另外三套不同风格的完整模板可直接改用：[`example_light_product.json`](example_light_product.json)（浅色产品发布）、[`example_business.json`](example_business.json)（商务汇报，无渐变）、[`example_dark_en.json`](example_dark_en.json)（英文暗黑发布会），渲染效果见 [`assets/showcase/`](../assets/showcase/)。
 
 ## 六步工作流（AI 自动执行）
 

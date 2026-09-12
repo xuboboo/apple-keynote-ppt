@@ -9,6 +9,7 @@
 
 ### Added
 
+- 风格效果画廊：新增 3 套风格各异的示例成品（浅色官网产品发布 InkPod / 商务年度汇报·纯色无渐变 / 英文暗黑发布会 Aurora Buds），连同原有戏仿示例共 4 套 45 页渲染图入库，全部通过代码级 QA 与逐页视觉验收
 - 产品文档体系补全：上手教程（TUTORIAL）、架构文档（ARCHITECTURE）、独立 FAQ、内部贡献指南（CONTRIBUTING），README 文档导航按读者角色重组
 - GitHub 仓库 About 与 topics 标签
 
