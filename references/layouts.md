@@ -153,11 +153,41 @@
 
 字段：`title`（必填）、`subtitle`、`event`（如 "Apple Special Event · 2026.09"）。
 
+## 13. bars 条形对比页
+
+用途：2–4 项量化对比（季度走势、渠道占比）。原生形状绘制，可在 PowerPoint 里继续编辑，非贴图。
+
+| 元素 | x | y | w | h | 样式 |
+|---|---|---|---|---|---|
+| kicker | 1.1 | 0.6 | 10.5 | 0.35 | 15，MUTED 大写 |
+| title | 1.1 | 0.95 | 10.5 | 0.8 | 34，Bold |
+| item.label | 1.1（行内垂直居中） | 2.35 + i×行高 | 2.7 | 行高 | 16，Bold |
+| track 底槽 | 4.0 | 条高垂直居中 | 6.9 | ≤0.5 | panel 色 |
+| bar | 4.0 | 同上 | 6.9 × value/max（≥0.35） | 同 track | `highlight` 项 accent，其余 muted |
+| item.display | bar 右侧 +0.15（行内居中） | 同 label | 1.9 | 行高 | 18，Bold，highlight 项 accent |
+
+字段：`title`（必填）、`items`（必填，2–4 项 `{label, value: 数字, display?, highlight?}`）。条长按 value/max 比例，最大值满槽。
+
+## 14. timeline 里程碑页
+
+用途：3–4 个关键节点（路线图、计划、节奏表）。
+
+| 元素 | 位置 | 样式 |
+|---|---|---|
+| kicker / title | 同 bars | 15 大写 / 34 Bold |
+| 轴线 | x 1.6→11.73，y=3.6，高 0.012 | line 分隔色 |
+| 节点圆点 | slot 均分居中，r=0.08（`highlight` 0.11 + accent 色） | 普通 TEXT 色 |
+| item.time | 圆点上方 y=2.65，w=2.2 居中 | 22，Bold |
+| item.title | 轴下方 y=3.95，w=2.2 居中 | 16，Bold |
+| item.desc | y=4.5，w=2.2，居中顶端对齐 | 14，MUTED |
+
+字段：`title`（必填）、`items`（必填，3–4 项 `{time, title, desc?, highlight?}`）。
+
 ---
 
 ## 选择逻辑速查
 
 - 说一个观点 → statement；亮一个数字 → bignum；秀产品 → product-hero
-- 讲功能 → 图多 split，图少 feature-grid；拉踩 → compare
-- 多款并列 → gallery（≤4）；引用背书 → quote；报价 → pricing
+- 讲功能 → 图多 split，图少 feature-grid；拉踩 → compare；量化走势/占比 → bars
+- 多款并列 → gallery（≤4）；引用背书 → quote；报价 → pricing；计划节奏 → timeline
 - 每章开头 → section；开头 cover；结尾 closing

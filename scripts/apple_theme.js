@@ -124,7 +124,7 @@ function cover(pres, t, d) {
     gradient: d.gradient !== false,
   });
   if (d.subtitle) addT(s, t, d.subtitle, { x: 1.67, y: 4.45, w: 10, h: 0.6, fontSize: 22, color: t.muted, align: 'center' });
-  if (d.date) addT(s, t, d.date, { x: 0, y: 6.55, w: 13.33, h: 0.4, fontSize: 15, color: t.muted, align: 'center' });
+  if (d.date) addT(s, t, d.date, { x: 0, y: 6.55, w: 13.33, h: 0.4, fontSize: 15, color: t.muted, align: 'center' });  return s;
 }
 
 function statement(pres, t, d) {
@@ -133,14 +133,14 @@ function statement(pres, t, d) {
   addT(s, t, d.text, {
     x: 1.42, y: 0, w: 10.5, h: 7.5, fontSize: size, bold: true, align: 'center', valign: 'middle',
     lineSpacingMultiple: 1.15, gradient: !!d.gradient,
-  });
+  });  return s;
 }
 
 function section(pres, t, d) {
   const s = bgSlide(pres, t);
   if (d.number) addT(s, t, d.number, { x: 1.1, y: 1.35, w: 5, h: 1.7, fontSize: 96, bold: true, color: t.muted, gradient: !!d.gradient });
   addT(s, t, d.title, { x: 1.1, y: 3.15, w: 10.5, h: 1.3, fontSize: 48, bold: true });
-  if (d.subtitle) addT(s, t, d.subtitle, { x: 1.1, y: 4.55, w: 10, h: 0.6, fontSize: 20, color: t.muted });
+  if (d.subtitle) addT(s, t, d.subtitle, { x: 1.1, y: 4.55, w: 10, h: 0.6, fontSize: 20, color: t.muted });  return s;
 }
 
 function bignum(pres, t, d) {
@@ -151,7 +151,7 @@ function bignum(pres, t, d) {
     gradient: d.gradient !== false,
   });
   if (d.label) addT(s, t, d.label, { x: 0.67, y: 4.15, w: 12, h: 0.7, fontSize: 26, bold: true, align: 'center' });
-  if (d.caption) addT(s, t, d.caption, { x: 1.67, y: 4.95, w: 10, h: 0.9, fontSize: 17, color: t.muted, align: 'center' });
+  if (d.caption) addT(s, t, d.caption, { x: 1.67, y: 4.95, w: 10, h: 0.9, fontSize: 17, color: t.muted, align: 'center' });  return s;
 }
 
 function productHero(pres, t, d) {
@@ -163,7 +163,7 @@ function productHero(pres, t, d) {
   } else {
     addT(s, t, d.title, { x: 0.67, y: 2.5, w: 12, h: 1.6, fontSize: 54, bold: true, align: 'center', valign: 'middle', gradient: !!d.gradient });
     if (d.subtitle) addT(s, t, d.subtitle, { x: 1.67, y: 4.35, w: 10, h: 0.6, fontSize: 20, color: t.muted, align: 'center' });
-  }
+  }  return s;
 }
 
 function split(pres, t, d) {
@@ -177,7 +177,7 @@ function split(pres, t, d) {
   const tx = imgLeft ? 7.0 : 0.9;
   if (d.kicker) addT(s, t, d.kicker.toUpperCase(), { x: tx, y: 2.05, w: 5.4, h: 0.4, fontSize: 15, color: t.muted, charSpacing: 3 });
   addT(s, t, d.title, { x: tx, y: 2.5, w: 5.4, h: 1.1, fontSize: 34, bold: true, lineSpacingMultiple: 1.1 });
-  if (d.text) addT(s, t, d.text, { x: tx, y: 3.75, w: 5.2, h: 2.5, fontSize: 17, color: t.muted, lineSpacingMultiple: 1.35 });
+  if (d.text) addT(s, t, d.text, { x: tx, y: 3.75, w: 5.2, h: 2.5, fontSize: 17, color: t.muted, lineSpacingMultiple: 1.35, valign: 'top' });  return s;
 }
 
 function featureGrid(pres, t, d) {
@@ -189,8 +189,8 @@ function featureGrid(pres, t, d) {
   feats.forEach((f, i) => {
     const x = 1.1 + i * (w + gap);
     addT(s, t, f.title, { x, y: 2.9, w, h: 0.6, fontSize: 21, bold: true });
-    if (f.text) addT(s, t, f.text, { x, y: 3.55, w, h: 2.4, fontSize: 16, color: t.muted, lineSpacingMultiple: 1.35 });
-  });
+    if (f.text) addT(s, t, f.text, { x, y: 3.55, w, h: 2.4, fontSize: 16, color: t.muted, lineSpacingMultiple: 1.35, valign: 'top' });
+  });  return s;
 }
 
 function compare(pres, t, d) {
@@ -203,9 +203,9 @@ function compare(pres, t, d) {
     addT(s, t, d.right.value, { x: R.x, y: 2.0, w: R.w, h: 1.1, fontSize: 48, bold: true, gradient: !!d.gradient });
   const ptRuns = (points, size, color) =>
     (points || []).map((p) => ({ text: p, options: { fontSize: size, color, breakLine: true, paraSpaceAfter: 8, fontFace: pickFont(p) } }));
-  if (d.left && d.left.points) addT(s, t, ptRuns(d.left.points, 15, t.muted), { x: L.x, y: 3.4, w: L.w, h: 3.2 });
-  if (d.right && d.right.points) addT(s, t, ptRuns(d.right.points, 16, t.text), { x: R.x, y: 3.4, w: R.w, h: 3.2 });
-  s.addShape('rect', { x: 6.665, y: 1.7, w: 0.008, h: 3.6, fill: { color: t.line } });
+  if (d.left && d.left.points) addT(s, t, ptRuns(d.left.points, 15, t.muted), { x: L.x, y: 3.4, w: L.w, h: 3.2, valign: 'top' });
+  if (d.right && d.right.points) addT(s, t, ptRuns(d.right.points, 16, t.text), { x: R.x, y: 3.4, w: R.w, h: 3.2, valign: 'top' });
+  s.addShape('rect', { x: 6.665, y: 1.7, w: 0.008, h: 3.6, fill: { color: t.line } });  return s;
 }
 
 function gallery(pres, t, d) {
@@ -225,14 +225,14 @@ function gallery(pres, t, d) {
     }
     addT(s, t, it.name, { x, y: 4.75, w, h: 0.5, fontSize: 18, bold: true, align: 'center' });
     if (it.desc) addT(s, t, it.desc, { x, y: 5.3, w, h: 0.8, fontSize: 14, color: t.muted, align: 'center' });
-  });
+  });  return s;
 }
 
 function quote(pres, t, d) {
   const s = bgSlide(pres, t);
   const size = d.text.length > 24 ? 28 : d.text.length > 16 ? 32 : 36;
   addT(s, t, d.text, { x: 1.67, y: 2.1, w: 10, h: 2.4, fontSize: size, bold: true, align: 'center', valign: 'middle', lineSpacingMultiple: 1.2 });
-  if (d.attribution) addT(s, t, d.attribution, { x: 0, y: 4.9, w: 13.33, h: 0.5, fontSize: 17, color: t.muted, align: 'center' });
+  if (d.attribution) addT(s, t, d.attribution, { x: 0, y: 4.9, w: 13.33, h: 0.5, fontSize: 17, color: t.muted, align: 'center' });  return s;
 }
 
 function pricing(pres, t, d) {
@@ -242,7 +242,7 @@ function pricing(pres, t, d) {
   });
   if (d.label) addT(s, t, d.label, { x: 0, y: 4.0, w: 13.33, h: 0.6, fontSize: 22, bold: true, align: 'center' });
   if (d.config) addT(s, t, d.config, { x: 1.67, y: 4.75, w: 10, h: 0.6, fontSize: 18, color: t.muted, align: 'center' });
-  if (d.note) addT(s, t, d.note, { x: 1.67, y: 6.5, w: 10, h: 0.4, fontSize: 13, color: t.muted, align: 'center' });
+  if (d.note) addT(s, t, d.note, { x: 1.67, y: 6.5, w: 10, h: 0.4, fontSize: 13, color: t.muted, align: 'center' });  return s;
 }
 
 function closing(pres, t, d) {
@@ -252,10 +252,56 @@ function closing(pres, t, d) {
     gradient: d.gradient !== false,
   });
   if (d.subtitle) addT(s, t, d.subtitle, { x: 1.67, y: 4.35, w: 10, h: 0.6, fontSize: 20, color: t.muted, align: 'center' });
-  if (d.event) addT(s, t, d.event, { x: 0, y: 6.55, w: 13.33, h: 0.4, fontSize: 14, color: t.muted, align: 'center' });
+  if (d.event) addT(s, t, d.event, { x: 0, y: 6.55, w: 13.33, h: 0.4, fontSize: 14, color: t.muted, align: 'center' });  return s;
 }
 
-const LAYOUTS = { cover, statement, section, bignum, productHero, split, featureGrid, compare, gallery, quote, pricing, closing };
+function bars(pres, t, d) {
+  const s = bgSlide(pres, t);
+  if (d.kicker) addT(s, t, d.kicker.toUpperCase(), { x: 1.1, y: 0.6, w: 10.5, h: 0.35, fontSize: 15, color: t.muted, charSpacing: 3 });
+  addT(s, t, d.title, { x: 1.1, y: 0.95, w: 10.5, h: 0.8, fontSize: 34, bold: true, valign: 'top' });
+  const items = (d.items || []).slice(0, 4);
+  const n = items.length;
+  const areaY = 2.35, areaH = 4.1, rowGap = 0.38;
+  const rowH = Math.min(1.0, (areaH - (n - 1) * rowGap) / n);
+  const maxV = Math.max(...items.map((it) => Math.abs(Number(it.value) || 0))) || 1;
+  const trackX = 4.0, trackW = 6.9;
+  items.forEach((it, i) => {
+    const y = areaY + i * (rowH + rowGap);
+    addT(s, t, it.label, { x: 1.1, y, w: 2.7, h: rowH, fontSize: 16, bold: true, valign: 'middle' });
+    const barH = Math.min(0.5, rowH * 0.55);
+    const by = y + (rowH - barH) / 2;
+    s.addShape('rect', { x: trackX, y: by, w: trackW, h: barH, fill: { color: t.panel } });
+    const w = Math.max(0.35, trackW * (Math.abs(Number(it.value) || 0) / maxV));
+    s.addShape('rect', { x: trackX, y: by, w, h: barH, fill: { color: it.highlight ? t.accent : t.muted } });
+    addT(s, t, it.display || String(it.value), {
+      x: trackX + w + 0.15, y, w: 1.9, h: rowH, fontSize: 18, bold: true,
+      valign: 'middle', color: it.highlight ? t.accent : t.text,
+    });
+  });
+  return s;
+}
+
+function timeline(pres, t, d) {
+  const s = bgSlide(pres, t);
+  if (d.kicker) addT(s, t, d.kicker.toUpperCase(), { x: 1.1, y: 0.6, w: 10.5, h: 0.35, fontSize: 15, color: t.muted, charSpacing: 3 });
+  addT(s, t, d.title, { x: 1.1, y: 0.95, w: 10.5, h: 0.8, fontSize: 34, bold: true, valign: 'top' });
+  const items = (d.items || []).slice(0, 4);
+  const n = items.length;
+  const axY = 3.6, x0 = 1.6, x1 = 11.73;
+  s.addShape('rect', { x: x0, y: axY, w: x1 - x0, h: 0.012, fill: { color: t.line } });
+  const slot = (x1 - x0) / n;
+  items.forEach((it, i) => {
+    const cx = x0 + slot * (i + 0.5);
+    const dotR = it.highlight ? 0.11 : 0.08;
+    s.addShape('ellipse', { x: cx - dotR, y: axY + 0.006 - dotR, w: dotR * 2, h: dotR * 2, fill: { color: it.highlight ? t.accent : t.text } });
+    addT(s, t, it.time, { x: cx - 1.1, y: 2.65, w: 2.2, h: 0.5, fontSize: 22, bold: true, align: 'center', color: it.highlight ? t.accent : t.text });
+    addT(s, t, it.title, { x: cx - 1.1, y: 3.95, w: 2.2, h: 0.5, fontSize: 16, bold: true, align: 'center', valign: 'top' });
+    if (it.desc) addT(s, t, it.desc, { x: cx - 1.1, y: 4.5, w: 2.2, h: 1.7, fontSize: 14, color: t.muted, align: 'center', lineSpacingMultiple: 1.3, valign: 'top' });
+  });
+  return s;
+}
+
+const LAYOUTS = { cover, statement, section, bignum, productHero, split, featureGrid, compare, gallery, quote, pricing, closing, bars, timeline };
 
 /** outline.json → pptx。图片路径需为绝对路径或已解析。 */
 function buildDeck(outline, outputPath) {
@@ -275,7 +321,8 @@ function buildDeck(outline, outputPath) {
       unknown.push(d.type);
       return;
     }
-    fn(pres, t, d);
+    const slide = fn(pres, t, d);
+    if (d.note && slide && typeof slide.addNotes === 'function') slide.addNotes(d.note);
   });
   if (unknown.length) console.warn('[apple-theme] 未识别的版式已跳过: ' + unknown.join(', '));
   return pres.writeFile({ fileName: outputPath });

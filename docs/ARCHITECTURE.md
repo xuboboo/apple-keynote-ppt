@@ -37,7 +37,7 @@
 
 | 文件 | 职责 | 关键导出/入口 |
 |---|---|---|
-| `scripts/apple_theme.js` | 主题库：色板常量、字体选择、12 个版式函数 | `buildDeck(outline, path)`、`LAYOUTS`、`valueRuns` |
+| `scripts/apple_theme.js` | 主题库：色板常量、字体选择、14 个版式函数 | `buildDeck(outline, path)`、`LAYOUTS`、`valueRuns` |
 | `scripts/build_deck.js` | CLI 入口：校验 outline → 渲染 → 触发渐变后处理 | `node build_deck.js outline.json out.pptx` |
 | `scripts/postprocess_gradient.py` | 在 OOXML 层把标记文本框改为真实渐变填充 | 自动执行，也可手动 |
 | `scripts/check_layout.py` | 代码级 QA：五类静态检查 | `python check_layout.py deck.pptx [--strict]` |
@@ -110,6 +110,6 @@ outline 中的一页：
 
 - **渐变渲染依赖 PowerPoint**：LibreOffice 对 `a:lin gradFill` 文字的渲染接近但不完全一致；以 PowerPoint/WPS 打开为准。
 - **单位缩放是启发式**：极少见的单位写法（如 "3.2µm"）分类可能不理想，可在 outline 里直接拆成 `label` 说明规避。
-- **无原生图表**：需要数据图表时，当前版本建议用 bignum 大数字页表达关键数值，或插入外部图表截图（cover 裁剪）。
+- **无复杂图表**：`bars` 版式覆盖 2–4 项的条形对比（原生形状、可编辑）；更复杂的图表建议截图后用 split 版式插入。
 - **无动画/演讲者备注**：PPTX 为静态页面；动画与备注在 roadmap 中（见 CHANGELOG Unreleased）。
 - **溢出估算误差**：±10% 量级，故设计上所有文本框已内置冗余；渲染预览是最终判据。

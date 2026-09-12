@@ -1,6 +1,6 @@
 ---
 name: apple-keynote-ppt
-version: 1.0.0
+version: 1.1.0
 description: >
   生成苹果发布会风格的极简 PPTX 演示文稿：纯黑/纯白双模式、超大字号、四色渐变标题、
   一页一个观点、大留白。当用户想要"苹果风 PPT"、"发布会风格演示文稿"、"Keynote 风格"、
@@ -19,7 +19,7 @@ description: >
 ```
 scripts/
   build_deck.js            CLI：outline.json → .pptx
-  apple_theme.js           主题库：色板 + 12 种版式函数（自定义版式时才改）
+  apple_theme.js           主题库：色板 + 14 种版式函数
   example_outline.json     示例大纲（戏仿奶茶发布会，12 页覆盖全部版式）
   postprocess_gradient.py  渐变文字 XML 后处理（build_deck.js 自动调用）
   check_layout.py          代码级 QA：字号/溢出/重叠/变形
@@ -105,8 +105,10 @@ bash <skill>/scripts/render_preview.sh deck.pptx preview
 | quote | 引言 | text |
 | pricing | 定价 | value |
 | closing | 结尾 | title |
+| bars | 量化条形对比（原生形状） | title, items（2–4 项，value 数字） |
+| timeline | 里程碑时间线 | title, items（3–4 项） |
 
-通用可选：`kicker`（大写引导词）、`gradient`（hero 类页面默认 true，其余默认 false）。
+通用可选：`kicker`（大写引导词）、`gradient`（hero 类页面默认 true，其余默认 false）、`note`（演讲者备注，写入 PPTX 备注页）。outline 顶层 `"gradient": false` 可全篇关闭渐变（商务汇报风），页内仍可显式覆盖。
 
 **色板**：dark = 背景 000000 / 文字 F5F5F7 / 次要 86868B；light = 背景 FBFBFD / 文字 1D1D1F / 次要 86868B；渐变 = 8B5CF6→4F8DEB→46C7C7→58C878（一场 PPT 最多 3–4 页用）。
 

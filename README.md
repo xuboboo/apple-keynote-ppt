@@ -22,7 +22,7 @@
 |---|---|
 | 双模式色板 | 深色发布会（纯黑 `#000000`）与浅色官网（`#FBFBFD`）两种视觉世界 |
 | 四色渐变标题 | `#8B5CF6→#4F8DEB→#46C7C7→#58C878`，通过 OOXML 后处理实现真实渐变文字 |
-| 12 种版式 | 封面 / 宣言 / 章节 / 大数字 / 产品主图 / 图文分屏 / 功能点 / 对比 / 阵列 / 引言 / 定价 / 结尾 |
+| 14 种版式 | 封面 / 宣言 / 章节 / 大数字 / 产品主图 / 图文分屏 / 功能点 / 对比 / 条形图 / 时间线 / 阵列 / 引言 / 定价 / 结尾 |
 | 确定性渲染 | 色板、字号、留白全部固化为代码，输出风格恒定 |
 | 双道 QA | `check_layout.py` 代码级检查（字号/溢出/重叠/变形）+ 渲染 PNG 视觉验收 |
 | 纯排版基线 | 无图片输入也成立；用户图片与 AI 配图均有完整规范 |
@@ -49,10 +49,10 @@
 |---|---|---|---|---|---|
 | 戏仿暗黑发布会 · Apple Milk Tea | dark | ✅ 4 处 | 12 | [`scripts/example_outline.json`](scripts/example_outline.json) | [`assets/preview/`](assets/preview/) |
 | 浅色官网产品发布 · InkPod | light | ✅ 4 处 | 11 | [`scripts/example_light_product.json`](scripts/example_light_product.json) | [`assets/showcase/inkpod-light/`](assets/showcase/inkpod-light/) |
-| 商务汇报 · 年度增长汇报 | light | ❌ 纯色 | 11 | [`scripts/example_business.json`](scripts/example_business.json) | [`assets/showcase/business-review/`](assets/showcase/business-review/) |
+| 商务汇报 · 年度增长汇报 | light | ❌ 纯色 | 13 | [`scripts/example_business.json`](scripts/example_business.json) | [`assets/showcase/business-review/`](assets/showcase/business-review/) |
 | 英文暗黑发布会 · Aurora Buds | dark | ✅ 4 处 | 11 | [`scripts/example_dark_en.json`](scripts/example_dark_en.json) | [`assets/showcase/aurora-en/`](assets/showcase/aurora-en/) |
 
-每套示例 = 一份 outline 模板 + 一个 .pptx 成品 + 逐页 PNG。全部通过代码级 QA（`check_layout.py` 零错误）与逐页视觉验收（45/45 pass）。想复用某种风格，直接把对应大纲模板改成你的文案即可。
+每套示例 = 一份 outline 模板 + 一个 .pptx 成品 + 逐页 PNG。全部通过代码级 QA（`check_layout.py` 零错误）与逐页视觉验收（47/47 pass）。想复用某种风格，直接把对应大纲模板改成你的文案即可。
 
 ## 快速开始
 

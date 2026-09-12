@@ -134,8 +134,11 @@ def main():
     prs = Presentation(path)
     slide_w, slide_h = prs.slide_width / EMU_IN, prs.slide_height / EMU_IN
     issues = []
+    grad_pages = []
     for idx, slide in enumerate(prs.slides, start=1):
         shapes = list(slide.shapes)
+        if any(sh.name and sh.name.startswith("grad:") for sh in shapes):
+            grad_pages.append(idx)
         for shape in shapes:
             if shape.has_text_frame and shape.text_frame.text.strip():
                 check_fonts(idx, shape, issues)
@@ -143,6 +146,12 @@ def main():
             if shape.shape_type == 13:  # PICTURE
                 check_image_distortion(idx, shape, issues)
         check_overlap(idx, shapes, slide_w, slide_h, issues)
+
+    if len(grad_pages) > 4:
+        issues.append((
+            "WARN",
+            f"渐变页数 {len(grad_pages)} > 4（第 {'、'.join(map(str, grad_pages))} 页），违反设计语言 §二：一场 PPT 最多 3–4 页渐变",
+        ))
 
     errors = [m for lvl, m in issues if lvl == "ERROR"]
     warns = [m for lvl, m in issues if lvl == "WARN"]

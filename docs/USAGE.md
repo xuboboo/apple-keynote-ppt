@@ -42,6 +42,7 @@ const { buildDeck, LAYOUTS } = require('./scripts/apple_theme');
 | 字段 | 类型 | 必填 | 说明 |
 |---|---|---|---|
 | `mode` | `"dark"` \| `"light"` | 否 | 视觉模式，默认 `dark`（发布会舞台风） |
+| `gradient` | boolean | 否 | 顶层渐变开关：`false` 全篇关闭渐变（商务汇报风）；默认开启，页内可显式覆盖 |
 | `title` | string | 否 | deck 元数据标题（写入 PPTX 属性） |
 | `slides` | array | ✅ | 页面数组，每页一个对象 |
 
@@ -52,6 +53,7 @@ const { buildDeck, LAYOUTS } = require('./scripts/apple_theme');
 | `type` | 全部 | 版式类型，见下表 |
 | `kicker` | 大部分 | 标题上方的大写引导词，如 "APPLE SPECIAL EVENT" |
 | `gradient` | hero 类 | 是否四色渐变文字；cover/bignum/closing 默认 true，其余默认 false |
+| `note` | 全部 | 演讲者备注，写入 PPTX 备注页（放映不显示，演示者视图可见） |
 
 12 种版式与必填字段：
 
@@ -69,6 +71,8 @@ const { buildDeck, LAYOUTS } = require('./scripts/apple_theme');
 | `quote` | 引言/金句 | `text` | `attribution` |
 | `pricing` | 定价页 | `value`（如 "¥19"） | `label`, `config`, `note`（脚注） |
 | `closing` | 结尾页 | `title` | `subtitle`, `event` |
+| `bars` | 量化条形对比（原生形状可编辑） | `title`, `items` | items 每项 `{label, value:数字, display?, highlight?}`，2–4 项 |
+| `timeline` | 里程碑时间线 | `title`, `items` | items 每项 `{time, title, desc?, highlight?}`，3–4 项 |
 
 图片路径相对 outline.json 所在目录解析。
 
