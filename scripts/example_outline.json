@@ -35,28 +35,75 @@
       "type": "featureGrid",
       "title": "三重茶香科技",
       "features": [
-        { "title": "冷热同杯", "text": "-5°C 到 85°C 全温域，杯身不结露、不烫手。" },
-        { "title": "磁吸杯盖", "text": "MagSafe 吸管自动对吸，单手开合。" },
-        { "title": "茶多酚屏", "text": "杯身实时显示甜度、冰量与剩余茶量。" }
+        {
+          "title": "冷热同杯",
+          "text": "-5°C 到 85°C 全温域，杯身不结露、不烫手。"
+        },
+        {
+          "title": "磁吸杯盖",
+          "text": "MagSafe 吸管自动对吸，单手开合。"
+        },
+        {
+          "title": "茶多酚屏",
+          "text": "杯身实时显示甜度、冰量与剩余茶量。"
+        }
       ]
     },
     {
       "type": "compare",
       "leftLabel": "传统奶茶",
       "rightLabel": "Apple Milk Tea",
-      "left": { "value": "30 分钟", "points": ["排队点单", "甜度靠猜", "喝完杯子扔掉"] },
-      "right": { "value": "3 秒", "points": ["蓝牙一点即取", "甜度 0–100% 精确可调", "杯身终身保修"] }
+      "left": {
+        "value": "30 分钟",
+        "points": [
+          "排队点单",
+          "甜度靠猜",
+          "喝完杯子扔掉"
+        ]
+      },
+      "right": {
+        "value": "3 秒",
+        "points": [
+          "蓝牙一点即取",
+          "甜度 0–100% 精确可调",
+          "杯身终身保修"
+        ]
+      }
     },
     {
       "type": "gallery",
       "title": "六款全新配色",
       "items": [
-        { "name": "云朵乌龙", "desc": "茉莉 · 奶盖", "color": "F3EFE8" },
-        { "name": "莓果气泡", "desc": "草莓 · 气泡", "color": "E8455F" },
-        { "name": "芒果阳光", "desc": "芒果 · 绿茶", "color": "F5A623" },
-        { "name": "抹茶森林", "desc": "抹茶 · 牛乳", "color": "3E7C4F" },
-        { "name": "海盐蓝调", "desc": "海盐 · 蝶豆花", "color": "2D6FBF" },
-        { "name": "紫薯星空", "desc": "紫薯 · 鲜奶", "color": "6B4FA3" }
+        {
+          "name": "云朵乌龙",
+          "desc": "茉莉 · 奶盖",
+          "color": "F3EFE8"
+        },
+        {
+          "name": "莓果气泡",
+          "desc": "草莓 · 气泡",
+          "color": "E8455F"
+        },
+        {
+          "name": "芒果阳光",
+          "desc": "芒果 · 绿茶",
+          "color": "F5A623"
+        },
+        {
+          "name": "抹茶森林",
+          "desc": "抹茶 · 牛乳",
+          "color": "3E7C4F"
+        },
+        {
+          "name": "海盐蓝调",
+          "desc": "海盐 · 蝶豆花",
+          "color": "2D6FBF"
+        },
+        {
+          "name": "紫薯星空",
+          "desc": "紫薯 · 鲜奶",
+          "color": "6B4FA3"
+        }
       ]
     },
     {
@@ -82,5 +129,6 @@
       "subtitle": "Apple Milk Tea 今日开售",
       "event": "Apple Special Event · 2026.09"
     }
-  ]
+  ],
+  "choreography": "cinematic"
 }

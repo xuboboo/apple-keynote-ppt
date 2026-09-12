@@ -205,7 +205,7 @@ function compare(pres, t, d) {
     (points || []).map((p) => ({ text: p, options: { fontSize: size, color, breakLine: true, paraSpaceAfter: 8, fontFace: pickFont(p) } }));
   if (d.left && d.left.points) addT(s, t, ptRuns(d.left.points, 15, t.muted), { x: L.x, y: 3.4, w: L.w, h: 3.2, valign: 'top' });
   if (d.right && d.right.points) addT(s, t, ptRuns(d.right.points, 16, t.text), { x: R.x, y: 3.4, w: R.w, h: 3.2, valign: 'top' });
-  s.addShape('rect', { x: 6.665, y: 1.7, w: 0.008, h: 3.6, fill: { color: t.line } });  return s;
+  s.addShape('rect', { x: 6.665, y: 1.7, w: 0.008, h: 3.6, fill: { color: t.line }, objectName: 'anim:wipe' });  return s;
 }
 
 function gallery(pres, t, d) {
@@ -270,9 +270,9 @@ function bars(pres, t, d) {
     addT(s, t, it.label, { x: 1.1, y, w: 2.7, h: rowH, fontSize: 16, bold: true, valign: 'middle' });
     const barH = Math.min(0.5, rowH * 0.55);
     const by = y + (rowH - barH) / 2;
-    s.addShape('rect', { x: trackX, y: by, w: trackW, h: barH, fill: { color: t.panel } });
+    s.addShape('rect', { x: trackX, y: by, w: trackW, h: barH, fill: { color: t.panel }, objectName: 'anim:wipe' });
     const w = Math.max(0.35, trackW * (Math.abs(Number(it.value) || 0) / maxV));
-    s.addShape('rect', { x: trackX, y: by, w, h: barH, fill: { color: it.highlight ? t.accent : t.muted } });
+    s.addShape('rect', { x: trackX, y: by, w, h: barH, fill: { color: it.highlight ? t.accent : t.muted }, objectName: 'anim:wipe' });
     addT(s, t, it.display || String(it.value), {
       x: trackX + w + 0.15, y, w: 1.9, h: rowH, fontSize: 18, bold: true,
       valign: 'middle', color: it.highlight ? t.accent : t.text,
@@ -288,7 +288,7 @@ function timeline(pres, t, d) {
   const items = (d.items || []).slice(0, 4);
   const n = items.length;
   const axY = 3.6, x0 = 1.6, x1 = 11.73;
-  s.addShape('rect', { x: x0, y: axY, w: x1 - x0, h: 0.012, fill: { color: t.line } });
+  s.addShape('rect', { x: x0, y: axY, w: x1 - x0, h: 0.012, fill: { color: t.line }, objectName: 'anim:wipe' });
   const slot = (x1 - x0) / n;
   items.forEach((it, i) => {
     const cx = x0 + slot * (i + 0.5);

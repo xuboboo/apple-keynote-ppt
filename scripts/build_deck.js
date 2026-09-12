@@ -105,10 +105,11 @@ function postprocessGradient(pptxPath) {
   }
 }
 
-function addAnimations(pptxPath) {
+function addAnimations(pptxPath, choreography, seedText) {
   const script = path.join(__dirname, 'add_animations.py');
   try {
-    const out = execFileSync('python', [script, pptxPath], { encoding: 'utf8', timeout: 60000 });
+    const args = [script, pptxPath, choreography || 'auto', seedText || ''];
+    const out = execFileSync('python', args, { encoding: 'utf8', timeout: 60000 });
     console.log(out.trim());
   } catch (e) {
     console.warn(`[build_deck] 动画注入失败（PPT 仍可用，无转场/入场动画）: ${e.message.split('\n')[0]}`);
@@ -147,8 +148,8 @@ async function main() {
   await buildDeck(outline, outPath);
   console.log(`[build_deck] 已生成: ${outPath}（${outline.slides.length} 页，mode=${outline.mode || 'dark'}）`);
 
-  // 后处理：转场/入场动画（顶层 "animations": false 可关闭）→ 渐变文字
-  if (outline.animations !== false) addAnimations(outPath);
+  // 后处理：转场/入场动画（顶层 "animations": false 关闭；"choreography": "cinematic|crisp|editorial|bold|tvos" 指定编排，缺省按标题哈希自动选择）→ 渐变文字
+  if (outline.animations !== false) addAnimations(outPath, outline.choreography, `${outline.title || ''}|${outline.slides.length}`);
   postprocessGradient(outPath);
 }
 
